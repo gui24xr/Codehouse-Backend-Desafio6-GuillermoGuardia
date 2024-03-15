@@ -3,15 +3,12 @@ import { UserModel } from '../models/user.models.js'
 
 export const router = express.Router()
 
-router.get('/session',(req,res)=>{
-    res.send('Hola')
-})
 
-router.get('/registrarse',async(req,res)=>{
+router.get('/api/sessions/registrarse',async(req,res)=>{
     res.render('register')
 })
 
-router.post('/registrarse',async(req,res)=>{
+router.post('/api/sessions/registrarse',async(req,res)=>{
     //Recibo los datos del nuevo usuario.
     const {first_name,last_name,age,email,password} = req.body
     try{
@@ -24,11 +21,11 @@ router.post('/registrarse',async(req,res)=>{
     }
 })
 
-router.get('/login',(req,res)=>{
+router.get('/api/sessions/login',(req,res)=>{
     res.render('login')
 })
 
-router.post('/login',async(req,res)=>{
+router.post('/api/sessions/login',async(req,res)=>{
     const {email,password} = req.body
     //Comprueno que exista en la BD un user con el email
     try {
@@ -39,9 +36,9 @@ router.post('/login',async(req,res)=>{
             ?
             (
                 req.session.login = true,
-                req.session.data = usuario, //Le pongo una propiedad alobjeto req.session que sea un objeto con la data de usuario
-                
-                //res.status(200).send({message:'Usuario inicio sesion con exito!!'})
+                req.session.user = usuario, 
+               /*Le pongo una propiedad alobjeto req.session que sea el objeto con la data de usuario que tengo guardado en mongo*/
+               //res.status(200).send({message:'Usuario inicio sesion con exito!!'})
                 res.redirect('/products')
             ):
             (
@@ -56,9 +53,11 @@ router.post('/login',async(req,res)=>{
     }
 })
 
-router.get('/logout',(req,res)=>{
+router.get('/api/sessions/logout',(req,res)=>{
+    //Destruye la sesion y redirige a la portada.
     if ( req.session.login ){
         req.session.destroy()
     }
-    res.status(200).send('Se ah eliminado el login...')
+    //res.status(200).send('Se ah eliminado el login...')
+    res.redirect('/')
 })

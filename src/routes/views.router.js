@@ -5,6 +5,11 @@ import { uploadProductImage } from '../config/multer-configs.js'
 export const router = express.Router()
 const productManager = new ProductManager()
 
+
+router.get('/',(req,res)=>{
+    res.render('home')
+})
+
 router.get('/viewproducts', async (req,res)=>{
     try{
         const products = await productManager.getProducts()
