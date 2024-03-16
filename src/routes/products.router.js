@@ -142,7 +142,7 @@ router.get('/products', async (req,res)=>{
         limit: paginate.limit,
         valuesToScript: JSON.stringify(paginate),
         //mando los datos de session para renderizar... 
-        session: req.session
+        sessionData: req.session
 
     
     }

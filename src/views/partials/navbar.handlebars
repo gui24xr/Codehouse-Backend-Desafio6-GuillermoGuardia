@@ -1,10 +1,11 @@
     <!--Mensaje de  bienvenido.-->
-         <div class="px-4 w-full flex  space-x-10 bg-yellow-600 py-2 text-teal-300">
+         <div class="px-4 w-full flex space-x-10 bg-yellow-600 py-2 text-teal-300">
 
-                {{#if session.login}}
+                {{#if sessionData.login}}
                     
-                    <p class="text-sm font-small">Bienvenido {{session.user.first_name}} {{session.user.last_name}}</p>
-                    <p class="text-sm font-small">E-mail {{session.user.email}} </p>
+                    
+                    <p class="text-sm font-small">Bienvenido {{sessionData.user.first_name}} {{sessionData.user.last_name}}</p>
+                    <p class="text-sm font-small">E-mail {{sessionData.user.email}} </p>
                     
                     <div>
                         <a href="/api/sessions/logout" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Cerrar sesion</a>
@@ -16,13 +17,15 @@
                     </div>
                      <div>
                         <a href="/api/sessions/registrarse" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Registrarse</a>
-                    </div>
+                   </div>
 
-                    
-                    <p class="text-sm font-small">Bienvenidoadad {{session.user.first_name}} {{session.user.last_name}}</p>
-                    <p class="text-sm font-small">E-mail {{session.user.email}} </p>
-
+                                
                 {{/if}}
+
+                    <!--BOTON PARA INGRRESAR A PEERFIL DE USUARIO.... PROVISORIO-->
+                    <div>
+                        <a href="/profile" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">VER PERFIL</a>
+                    </div>
 
 
 

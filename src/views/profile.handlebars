@@ -1,12 +1,7 @@
-   <div class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-600 to-violet-600">
+   <div class="flex items-center justify-center h-screen bg-gradient-to-r from-blue-600 to-slate-600">
         <div class="w-full max-w-xl flex flex-col">
          
-            <h1 class="text-3xl text-white font-bold mb-5 drop-shadow-lg">E-COMMERCE CODERHOUSE BACKEND</h1>
-            <p class="text-white font-bold mb-5 drop-shadow-lg text-right ml-auto">Guillermo Guardia</p>
-  
-
-        {{#if sessionData.login}}
-            <!-- SI HAY USER LOGUEADO MUESTRO SU INFORMACION DE PERFIL-->
+       
            
         <div class="rounded-lg shadow-xl bg-gray-900 text-white">
             <div class="border-b border-gray-800 px-8 py-3">
@@ -28,20 +23,7 @@
                 </div>
             </div>
 
-
-
-
-
-        {{else}}
-
-            <!-- SI NO HAY USER LOGUEADO MUESTRO PARA INICIAR/REGISTRAR-->
-
-          <div class="border rounded p-4 flex flex-row items-center justify-center space-x-4">
-                <a href="/api/sessions/login"  class="w-full max-w-xs text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white">Iniciar sesión</a>
-                <a href="/api/sessions/registrarse" class="w-full max-w-xs text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white">Registrarse</a>
-         </div>
-         {{/if}}
-    
+     
         </div>
 
     </div>
